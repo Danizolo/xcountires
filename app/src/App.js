@@ -28,9 +28,8 @@ function App() {
       let data = await axios.get(countriesUrl);
       setCountriesData(data.data);
     } catch (error) {
-      console.log("Error fetching data");
-      console.log(error);
-      return;
+      console.error("Error fetching data");
+      console.error(error);
     }
   };
 
