@@ -34,17 +34,18 @@ function App() {
   };
 
   return (
-    <div className="App">
-      {countiresData.map((ele, index) => {
-        return (
-          <div className="cardBody" key={index}>
-            <div className="card">
+    <div className="body">
+      <div className="title">X-Countries</div>
+      <div className="content">
+        {countiresData.map((ele, index) => {
+          return (
+            <div className="card" key={index}>
               <img className="flag" src={ele.flag} alt={ele.abbr}></img>
               <div> {ele.name} </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 }

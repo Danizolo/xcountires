@@ -1,28 +1,37 @@
-.App {
+.body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80%;
-  height: 100%;
-  flex-wrap: wrap;
+  margin-top: 50px;
+
 }
 
-.cardBody{
-  display: flex;
-  justify-content: center;
+.title{
+  color: black;
+  
 }
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  width: 75%;
+}
+
+
 
 .card {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  flex: 2;
+  gap: 2px;
+  width: 120px;
   padding: 20px;
   margin: 10px;
   border: 1px solid lightgray;
+  text-align: center;
 }
 
-.flag{
+.flag {
   height: 100px;
   width: 100px;
 }
