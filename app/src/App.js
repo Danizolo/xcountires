@@ -1,23 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+/**
+ * @description      :
+ * @author           : DHANUSH
+ * @group            :
+ * @created          : 03/10/2025 - 11:33:13
+ *
+ * MODIFICATION LOG
+ * - Version         : 1.0.0
+ * - Date            : 03/10/2025
+ * - Author          : DHANUSH
+ * - Modification    :
+ **/
+
+import "./App.css";
+import { countriesUrl } from "./Constants/Urls";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [countiresData, setCountriesData] = useState([]);
+
+  useEffect(() => {
+    getCountriesList();
+  }, []);
+
+  const getCountriesList = async () => {
+    try {
+      let data = await axios.get(countriesUrl);
+      setCountriesData(data.data);
+    } catch (error) {
+      console.log("Error fetching data");
+      console.log(error);
+      return;
+    }
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {countiresData.map((ele, index) => {
+        return (
+          <div className="cardBody" key={index}>
+            <div className="card">
+              <img className="flag" src={ele.flag} alt={ele.abbr}></img>
+              <div> {ele.name} </div>
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 }
